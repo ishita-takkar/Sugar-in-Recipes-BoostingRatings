@@ -24,6 +24,8 @@ Food plays a crucial role in our lives, but with rising health concerns like dia
 
 ## Assessment of Missingness
 
+This dataset merges recipe details with user interactions into a unified table. Missing values in key fields (rating, calories, sugar) are removed and duplicate records eliminated. A new feature, "sugar proportion" (sugar/calories), is computed to analyze how sugar content influences recipe ratings.
+
 |   rating |   calories |   sugar |   prop_sugar |
 |---------:|-----------:|--------:|-------------:|
 |        5 |       95.3 |      50 |     0.524659 |
