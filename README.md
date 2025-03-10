@@ -4,6 +4,8 @@ by Ishita Takkar (itakkar@ucsd.edu), Jay Manjrekar (jmanjrekar@ucsd.edu)
 
 ## Intoduction
 
+Food plays a crucial role in our lives, but with rising health concerns like diabetes and obesity, dietary choices are under greater inspections. This project explores whether sugar and calorie content in recipes impact their ratings, reflecting consumer health awareness. By analyzing datasets containing recipe details and user interactions, we investigate whether people rate sugary, high-calorie recipes differently from healthier options. Understanding these preferences can provide insights for recipe creations and health-conscious individuals in balancing taste and nutrition.
+
 ## Data Cleaning and Exploratory Data Analysis
 
 ## Assessment of Missingness
@@ -17,3 +19,4 @@ by Ishita Takkar (itakkar@ucsd.edu), Jay Manjrekar (jmanjrekar@ucsd.edu)
 ## Final Model
 
 ## Fairness Analysis
+
