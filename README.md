@@ -24,6 +24,8 @@ Food plays a crucial role in our lives, but with rising health concerns like dia
 
 ## Assessment of Missingness
 
+print(df[['rating', 'calories', 'sugar', 'prop_sugar']].head().to_markdown(index=False))
+
 ## Hypothesis Testing
 
 ## Framing a Prediction Problem
