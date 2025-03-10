@@ -8,6 +8,20 @@ Food plays a crucial role in our lives, but with rising health concerns like dia
 
 ## Data Cleaning and Exploratory Data Analysis
 
+<iframe
+  src="assets/plot1.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+<iframe
+  src="assets/plot2.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 ## Assessment of Missingness
 
 ## Hypothesis Testing
