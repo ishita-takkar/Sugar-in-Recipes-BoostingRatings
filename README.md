@@ -24,7 +24,13 @@ Food plays a crucial role in our lives, but with rising health concerns like dia
 
 ## Assessment of Missingness
 
-print(df[['rating', 'calories', 'sugar', 'prop_sugar']].head().to_markdown(index=False))
+|   rating |   calories |   sugar |   prop_sugar |
+|---------:|-----------:|--------:|-------------:|
+|        5 |       95.3 |      50 |     0.524659 |
+|        5 |      143.5 |      25 |     0.174216 |
+|        5 |      182.4 |      50 |     0.274123 |
+|        5 |      182.4 |      50 |     0.274123 |
+|        4 |      658.2 |     151 |     0.229414 |
 
 ## Hypothesis Testing
 
