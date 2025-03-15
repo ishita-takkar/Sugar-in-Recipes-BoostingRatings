@@ -27,8 +27,22 @@ We first examined the distribution of individual variables. For example, the his
   frameborder="0"
 ></iframe>
 
+
 Interpretation: The rating distribution suggests users are generally very satisfied with recipes, while the sugar proportion plot indicates that most recipes contribute little to daily sugar intake.
 
+Bivariate Analysis:
+We explored relationships between pairs of variables to uncover potential associations. One scatter plot between calories and ratings suggested that some high-calorie recipes are rated very highly (a rating of 5) suggesting strong satisfaction from certain users, others receive a rating of 0, reflecting significant dissatisfaction. This split in opinions can be seen as both positive and negative, as it implies that high-calorie recipes evoke strong reactions, whether favorable or unfavorable. 
+
+
+<iframe
+  src="assets/plot4.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+
+Another bivariate analysis grouped contributors by the number of recipes they submitted and their average rating, revealing that even prolific contributors tend to have ratings clustered around 4–5.
 
 
 <iframe
@@ -42,15 +56,7 @@ Interpretation: The rating distribution suggests users are generally very satisf
 
 ## Assessment of Missingness
 
-This dataset merges recipe details with user interactions into a unified table. Missing values in key fields (rating, calories, sugar) are removed and duplicate records eliminated. A new feature, "sugar proportion" (sugar/calories), is computed to analyze how sugar content influences recipe ratings.
 
-|   rating |   calories |   sugar |   prop_sugar |
-|---------:|-----------:|--------:|-------------:|
-|        5 |       95.3 |      50 |     0.524659 |
-|        5 |      143.5 |      25 |     0.174216 |
-|        5 |      182.4 |      50 |     0.274123 |
-|        5 |      182.4 |      50 |     0.274123 |
-|        4 |      658.2 |     151 |     0.229414 |
 
 ## Hypothesis Testing
 
