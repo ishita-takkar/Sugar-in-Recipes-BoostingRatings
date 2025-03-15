@@ -8,6 +8,11 @@ Food plays a crucial role in our lives, but with rising health concerns like dia
 
 ## Data Cleaning and Exploratory Data Analysis
 
+We began by merging our interactions and recipes datasets on the recipe ID and ID to align user behavior with recipe details, ensuring that every rating was paired with complete and descriptive information. Next, we cleaned the data by converting columns like rating and nutritional values to numeric types Finally, we derived additional features like computing the sugar proportion as sugar divided by calories to better capture nutritional aspects for further analysis. The dataset is below:
+
+Univariate Analysis:
+We first examined the distribution of individual variables. For example, the histogram of recipe ratings showed that most users give high ratings (mostly 5), resulting in a right-skewed distribution. In another univariate plot, the histogram of sugar proportion (sugar/calories) confirmed our assumption that many recipes have a low percentage of calories from sugar.
+
 <iframe
   src="assets/plot1.html"
   width="800"
@@ -15,12 +20,25 @@ Food plays a crucial role in our lives, but with rising health concerns like dia
   frameborder="0"
 ></iframe>
 
-<!-- <iframe
+<iframe
+  src="assets/plot3.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
+Interpretation: The rating distribution suggests users are generally very satisfied with recipes, while the sugar proportion plot indicates that most recipes contribute little to daily sugar intake.
+
+
+
+<iframe
   src="assets/plot2.html"
   width="800"
   height="600"
   frameborder="0"
-></iframe> -->
+></iframe>
+
+
 
 ## Assessment of Missingness
 
