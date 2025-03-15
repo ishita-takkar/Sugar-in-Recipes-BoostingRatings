@@ -15,12 +15,12 @@ Food plays a crucial role in our lives, but with rising health concerns like dia
   frameborder="0"
 ></iframe>
 
-<iframe
+<!-- <iframe
   src="assets/plot2.html"
   width="800"
   height="600"
   frameborder="0"
-></iframe>
+></iframe> -->
 
 ## Assessment of Missingness
 
@@ -35,6 +35,8 @@ This dataset merges recipe details with user interactions into a unified table. 
 |        4 |      658.2 |     151 |     0.229414 |
 
 ## Hypothesis Testing
+
+
 
 ## Framing a Prediction Problem
 
