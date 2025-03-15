@@ -63,7 +63,7 @@ Testing Recipe Healthiness via User Ratings:
 
 To evaluate whether recipes with a healthier nutritional profile (defined as having more protein and fewer carbohydrates) are rated higher, we first computed a health score as the difference between protein and carbohydrates. Recipes with a health score above the median were labeled “healthy,” and those below were labeled “unhealthy.” We then calculated the observed difference in mean ratings between these two groups.
 
-To determine whether this observed difference was statistically significant, we performed a permutation test by randomly shuffling the health group labels 1,000 times and computing the difference in mean ratings for each shuffle. The empirical distribution of these differences was compared to the observed value, and the resulting p-value indicated that the likelihood of the observed difference occurring by chance was extremely low. This strongly suggests that healthier recipes, as defined by our metric, tend to receive higher user ratings.
+To determine whether this observed difference was statistically significant, we performed a permutation test by randomly shuffling the health group labels 1,000 times and computing the difference in mean ratings for each shuffle. The empirical distribution of these differences was compared to the observed value, and the resulting p-value indicated that the likelihood of the observed difference occurring by chance was extremely low. This strongly suggests that healthier recipes, as defined by our hypothesis, tend to receive higher user ratings.
 
 <iframe
   src="assets/hypothesis.html"
