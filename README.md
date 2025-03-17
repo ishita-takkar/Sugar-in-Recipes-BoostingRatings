@@ -48,20 +48,20 @@ prop_sugar = Sugar content / Total calories
 - The distribution is right-skewed, meaning most recipes receive high ratings (4-5).
 - Very few recipes receive low ratings (0-2).
 
+<iframe
+  src="assets/plot_1.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 ### Distribution of Sugar Proportion in Recipes
 
 - Most recipes derive a small proportion of their calories from sugar.
 - Indicates that sugar is not the dominant calorie source in most recipes.
 
 <iframe
-  src="assets/plot1.html"
-  width="800"
-  height="600"
-  frameborder="0"
-></iframe>
-
-<iframe
-  src="assets/plot3.html"
+  src="assets/plot_2.html"
   width="800"
   height="600"
   frameborder="0"
@@ -74,7 +74,7 @@ prop_sugar = Sugar content / Total calories
 We explored relationships between pairs of variables to uncover potential associations. One scatter plot between calories and ratings suggested that some high-calorie recipes are rated very highly (a rating of 5) suggesting strong satisfaction from certain users, others receive a rating of 0, reflecting significant dissatisfaction. This split in opinions can be seen as both positive and negative, as it implies that high-calorie recipes evoke strong reactions, whether favorable or unfavorable. 
 
 <iframe
-  src="assets/plot4.html"
+  src="assets/plot_3.html"
   width="800"
   height="600"
   frameborder="0"
@@ -86,7 +86,7 @@ Relationship Between Calories and Ratings
 - Suggests some users prefer indulgent meals, while others avoid them.
 
 <iframe
-  src="assets/plot2.html"
+  src="assets/plot_4.html"
   width="800"
   height="600"
   frameborder="0"
@@ -100,6 +100,13 @@ We categorize recipes into four groups based on their sugar proportion and analy
 - Recipes with moderate sugar levels tend to have slightly higher ratings.
 - Extremely low or high sugar content does not necessarily boost ratings.
 
+| sugar_split   |   Count |   Mean_Rating |
+|:--------------|--------:|--------------:|
+| Very Low      |   58584 |       4.35849 |
+| Low           |   58586 |       4.41689 |
+| Medium        |   58574 |       4.40177 |
+| High          |   58582 |       4.34195 |
+
 ## Assessment of Missingness
 
 ### NMAR Analysis
@@ -110,6 +117,13 @@ Users might only leave reviews for recipes they strongly like or dislike.
 ### Permutation Test for Missingness
 We conducted a permutation test to analyze if missing reviews depend on rating.
 P-value: 0.066 → Suggests reviews might be Missing at Random (MAR).
+
+<iframe
+  src="assets/plot_5.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 ## Hypothesis Testing
 
@@ -124,22 +138,24 @@ Does a high protein-to-carbohydrate ratio (healthier recipes) correlate with hig
 Null Hypothesis (H₀): No difference in average ratings based on protein-to-carb ratio.
 Alternative Hypothesis (H₁): Recipes with a higher protein-to-carb ratio have higher ratings.
 
+<iframe
+  src="assets/plot_6.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 Permutation Test Results:
 
 Observed Mean Difference: Higher protein-to-carb recipes had better ratings.
 P-value: 0.0 → Strong evidence to reject the null hypothesis.
 Users prefer high-protein, lower-carb recipes.
 
-<iframe
-  src="assets/hypothesis.html"
-  width="800"
-  height="600"
-  frameborder="0"
-></iframe>
-
 ## Framing a Prediction Problem
 
+Our prediction problem aims to determine what factors contribute to a recipe’s popularity, measured by the number of ratings. By analyzing various recipe attributes, nutritional content, and user interaction data, we seek to identify key elements that drive user engagement. Our model incorporates both original features such as preparation time, number of steps, and ingredients, as well as engineered features like steps per ingredient and ingredient complexity to capture the complexity and efficiency of a recipe.
 
+Additionally, we include nutritional components like calories, protein, carbohydrates, and sugar to examine how health factors influence engagement. Using a Random Forest Regressor, we will predict the number of ratings a recipe will receive, helping to uncover trends in user preferences. These insights can assist recipe developers in optimizing their content and improving recommendation algorithms to better match users with recipes they are more likely to engage with.
 
 ## Baseline 
 
@@ -151,7 +167,6 @@ contributor_id (one-hot encoded)
 Performance:
 Baseline R² Score: -0.0648 (poor fit)
 Baseline RMSE: 5.10
-
 
 ## Final Model
 
@@ -177,6 +192,13 @@ Group Y: Recipes with low sugar proportion
 
 Null Hypothesis (H₀): Model performs equally well for both groups.
 Alternative Hypothesis (H₁): Model performs worse for high-sugar recipes.
+
+<iframe
+  src="assets/plot_7.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 Permutation Test Results:
 
