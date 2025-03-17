@@ -1,17 +1,57 @@
-# Sugar-in-Recipes-BoostingRatings
+# What Makes a Recipe Popular?
 
 by Ishita Takkar (itakkar@ucsd.edu), Jay Manjrekar (jmanjrekar@ucsd.edu)
 
 ## Intoduction
 
-Food plays a crucial role in our lives, but with rising health concerns like diabetes and obesity, dietary choices are under greater inspections. This project explores whether sugar and calorie content in recipes impact their ratings, reflecting consumer health awareness. By analyzing datasets containing recipe details and user interactions, we investigate whether people rate sugary, high-calorie recipes differently from healthier options. Understanding these preferences can provide insights for recipe creations and health-conscious individuals in balancing taste and nutrition.
+### Dataset Overview
+
+We explore recipe data by merging the recipe information with user interactions to analyze both health consciousness and what makes a recipe popular. By examining how nutritional content and calorie levels affects consumer ratings, we uncover key trends in recipe preferences. Through data cleaning, univariate, and bivariate analyses, we highlight patterns in health awareness while also identifying factors that contribute to recipe popularity. Using these insights, we build predictive models to forecast recipe success, offering valuable guidance for both health-conscious consumers and those seeking highly-rated dishes.
+
+This project analyzes recipe data from two sources:
+
+RAW_recipes.csv (contains recipe details like ingredients, steps, and nutrition)
+
+interactions.csv (user reviews and ratings for recipes)
+
+We merge these datasets on id and recipe_id to examine how nutritional content and contributor experience influence recipe ratings and popularity.
 
 ## Data Cleaning and Exploratory Data Analysis
 
-We began by merging our interactions and recipes datasets on the recipe ID and ID to align user behavior with recipe details, ensuring that every rating was paired with complete and descriptive information. Next, we cleaned the data by converting columns like rating and nutritional values to numeric types Finally, we derived additional features like computing the sugar proportion as sugar divided by calories to better capture nutritional aspects for further analysis. The dataset is below:
+### Research Question
 
-Univariate Analysis:
-We first examined the distribution of individual variables. For example, the histogram of recipe ratings showed that most users give high ratings (mostly 5), resulting in a right-skewed distribution. In another univariate plot, the histogram of sugar proportion (sugar/calories) confirmed our assumption that many recipes have a low percentage of calories from sugar.
+Does sugar content in a recipe impact its popularity (ratings)?
+Understanding this can help health-conscious consumers make informed choices and assist content creators in optimizing recipe recommendations.
+
+Relevant Columns:
+
+- recipe_id: Unique identifier for each recipe
+- rating: User rating (0-5 scale)
+- nutrition: List of nutritional values (calories, fat, sugar, sodium, protein, etc.)
+- contributor_id: ID of the user who shared the recipe
+- minutes: Total preparation time
+- n_steps: Number of cooking steps
+- n_ingredients: Number of ingredients
+
+### Data Cleaning
+
+- Merged datasets on recipe_id
+- Extracted nutrition values from string format into separate columns (calories, sugar, etc.)
+
+Created new features, including:
+prop_sugar = Sugar content / Total calories
+
+## Univariate Analysis
+
+### Distribution of Recipe Ratings
+
+- The distribution is right-skewed, meaning most recipes receive high ratings (4-5).
+- Very few recipes receive low ratings (0-2).
+
+### Distribution of Sugar Proportion in Recipes
+
+- Most recipes derive a small proportion of their calories from sugar.
+- Indicates that sugar is not the dominant calorie source in most recipes.
 
 <iframe
   src="assets/plot1.html"
@@ -27,9 +67,10 @@ We first examined the distribution of individual variables. For example, the his
   frameborder="0"
 ></iframe>
 
-Interpretation: The rating distribution suggests users are generally very satisfied with recipes, while the sugar proportion plot indicates that most recipes contribute little to daily sugar intake.
+## Bivariate Analysis:
 
-Bivariate Analysis:
+### Recipe Count vs. Average Rating
+
 We explored relationships between pairs of variables to uncover potential associations. One scatter plot between calories and ratings suggested that some high-calorie recipes are rated very highly (a rating of 5) suggesting strong satisfaction from certain users, others receive a rating of 0, reflecting significant dissatisfaction. This split in opinions can be seen as both positive and negative, as it implies that high-calorie recipes evoke strong reactions, whether favorable or unfavorable. 
 
 <iframe
@@ -39,7 +80,10 @@ We explored relationships between pairs of variables to uncover potential associ
   frameborder="0"
 ></iframe>
 
-Another bivariate analysis grouped contributors by the number of recipes they submitted and their average rating, revealing that even prolific contributors tend to have ratings clustered around 4–5.
+Relationship Between Calories and Ratings
+
+- Polarized ratings: High-calorie recipes often receive either very high (5) or very low (0) ratings.
+- Suggests some users prefer indulgent meals, while others avoid them.
 
 <iframe
   src="assets/plot2.html"
@@ -48,14 +92,24 @@ Another bivariate analysis grouped contributors by the number of recipes they su
   frameborder="0"
 ></iframe>
 
+## Interesting Aggregates
+
+### Does Sugar Content Influence Popularity?
+We categorize recipes into four groups based on their sugar proportion and analyze their average rating.
+
+- Recipes with moderate sugar levels tend to have slightly higher ratings.
+- Extremely low or high sugar content does not necessarily boost ratings.
+
 ## Assessment of Missingness
 
-NMAR Analysis:
-Based on the data generating process, I suspect that the missingness in the review column may be NMAR (Not Missing At Random). This is because user reviews are likely to be influenced by subjective factors—for instance, users might only leave a review when they feel particularly strongly (positively or negatively) about a recipe. In contrast, neutral experiences may lead to no review. To further investigate, additional data on user behavior or contextual factors (such as whether the review prompt was optional or mandatory) would help determine if the missingness is indeed NMAR or if it could be explained by observed variables, making it MAR.
+### NMAR Analysis
 
-Missingness Dependency:
-I performed a permutation test to analyze the dependency of the missingness in the review column on the rating column. The test statistic was defined as the absolute difference in the mean ratings between recipes with missing reviews and those with non-missing reviews. After 1,000 permutations, the observed p-value was 0.048 —less than the conventional significance level of 0.05. This suggests that the missingness in the review column is statistically dependent on the rating values, meaning that reviews tend to be missing in a systematic way relative to the ratings (i.e., the missingness is not completely random).
+Missing reviews (only 57 values) suggest NMAR (Not Missing At Random).
+Users might only leave reviews for recipes they strongly like or dislike.
 
+### Permutation Test for Missingness
+We conducted a permutation test to analyze if missing reviews depend on rating.
+P-value: 0.066 → Suggests reviews might be Missing at Random (MAR).
 
 ## Hypothesis Testing
 
