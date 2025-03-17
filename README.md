@@ -139,9 +139,47 @@ Users prefer high-protein, lower-carb recipes.
 
 ## Framing a Prediction Problem
 
-## Baseline Model
+
+
+## Baseline 
+
+Linear Regression Model using:
+
+log_minutes, n_steps, n_ingredients, steps_per_ingredient
+contributor_id (one-hot encoded)
+
+Performance:
+Baseline R² Score: -0.0648 (poor fit)
+Baseline RMSE: 5.10
+
 
 ## Final Model
 
+Improved model using Random Forest Regressor.
+
+### Feature Engineering:
+Added ingredient_complexity
+Tuned hyperparameters via GridSearchCV.
+
+### Performance Improvement:
+Final Model R² Score: 0.0111
+Final Model RMSE: 4.01
+Model captures slightly better variance.
+
 ## Fairness Analysis
 
+### Does the Model Predict Worse for High-Sugar Recipes?
+
+Groups:
+
+Group X: Recipes with high sugar proportion
+Group Y: Recipes with low sugar proportion
+
+Null Hypothesis (H₀): Model performs equally well for both groups.
+Alternative Hypothesis (H₁): Model performs worse for high-sugar recipes.
+
+Permutation Test Results:
+
+- Observed Difference in RMSE: -0.0035
+- P-value: 0.4820 → Fail to reject the null hypothesis.
+- Conclusion: Model is not biased against high-sugar recipes.
